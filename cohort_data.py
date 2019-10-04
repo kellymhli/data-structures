@@ -28,7 +28,7 @@ def unique_houses(filename):
     # Code goes here
 
     open_file.close()
-    
+
     return houses
 
 
@@ -53,7 +53,30 @@ def sort_by_cohort(filename):
     fall_15 = []
     ghosts = []
 
-    # Code goes here
+    open_file = open(filename)
+
+    for line in open_file:
+        line = line.rstrip()
+        student_info = line.split("|")
+        first, last, house, advisor, cohort = student_info
+        full_name = first + " " + last
+        
+
+        cohort_dic = {"Winter 2016":winter_16, "Spring 2016":spring_16,
+                      "Summer 2016":summer_16, "Fall 2015":fall_15, "G":ghosts}
+        
+        if cohort in cohort_dic:
+            cohort_dic[cohort].append(full_name)
+            
+
+    all_students.append(fall_15)
+    all_students.append(winter_16)
+    all_students.append(spring_16)
+    all_students.append(summer_16)
+    all_students.append(ghosts)
+
+    open_file.close()
+
 
     return all_students
 
