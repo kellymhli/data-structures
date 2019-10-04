@@ -104,7 +104,15 @@ def hogwarts_by_house(filename):
     ghosts = []
     instructors = []
 
-    # Code goes here
+    open_file = open(filename)
+    for line in open_file:
+        line = line.rstrip()
+        student_info = line.split("|")
+        first, last, house, advisor, cohort = student_info
+
+        house_dic = {"Dumbledore's Army":dumbledores_army, "Gryffindor":gryffindor,
+                     "Hufflepuff":hufflepuff, "Ravenclaw":ravenclaw, "Slytherin":slytherin
+                     "G":ghosts, "I":instructors}
 
     return all_hogwarts
 
