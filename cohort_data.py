@@ -111,8 +111,27 @@ def hogwarts_by_house(filename):
         first, last, house, advisor, cohort = student_info
 
         house_dic = {"Dumbledore's Army":dumbledores_army, "Gryffindor":gryffindor,
-                     "Hufflepuff":hufflepuff, "Ravenclaw":ravenclaw, "Slytherin":slytherin
-                     "G":ghosts, "I":instructors}
+                     "Hufflepuff":hufflepuff, "Ravenclaw":ravenclaw, 
+                     "Slytherin":slytherin}
+
+
+        if house in house_dic:
+            house_dic[house].append(last)
+        elif cohort == "G":
+            ghosts.append(last)
+        elif cohort == "I":
+            instructors.append(last)
+
+    
+    all_hogwarts.append(sorted(dumbledores_army))
+    all_hogwarts.append(sorted(gryffindor))
+    all_hogwarts.append(sorted(hufflepuff))
+    all_hogwarts.append(sorted(ravenclaw))
+    all_hogwarts.append(sorted(slytherin))
+    all_hogwarts.append(sorted(ghosts))
+    all_hogwarts.append(sorted(instructors))
+    
+    
 
     return all_hogwarts
 
