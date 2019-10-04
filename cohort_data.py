@@ -181,9 +181,19 @@ def find_cohort_by_student_name(student_list):
 
     """
 
-    # Code goes here
+    student_name = input("Who are you looking for? ")
+    for student_tuple in student_list:
+        if student_name.title() == student_tuple[0]:
+            print(f"{student_name.title()} was in the {student_tuple[3]} cohort.")
 
-    return "Student not found."
+    print ("Student not found.")
+
+student_list = [
+    ("Euan Abercrombie", "Gryffindor", "McGonagall", "Summer 2016"),
+    ("Katie Bell", "Gryffindor", "McGonagall", "Summer 2016")
+    ]
+
+find_cohort_by_student_name(student_list)
 
 
 ##########################################################################################
@@ -243,7 +253,7 @@ def find_house_members_by_student_name(student_list):
 #############################################################################
 # Here is some useful code to run these functions without doctests!
 
-# find_cohort_by_student_name(all_students_data)
+#find_cohort_by_student_name(all_students_data)
 # find_house_members_by_student_name(all_students_data)
 
 
